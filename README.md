@@ -15,7 +15,7 @@ pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
 unpad = lambda s : s[0:-ord(s[-1])]
 
 if __name__ == '__main__':
-    key = "12345678901234567890123456789012"; # 32bit
+    key = '12345678901234567890123456789012' # 32bit
     iv = '1234567890123456' # 16bit
     
     beforeCipher = 'abcd'
@@ -58,10 +58,10 @@ public class Test {
 
     @org.junit.Test
     public void test() throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        String key = "Wu4hpITrFb02n9vWdlWzpXYAkmaX1RXL";
-        String iv = "EWt02NzAn8BIVDse";
+        String key = "12345678901234567890123456789012";
+        String iv = "1234567890123456";
 
-        String beforeCipher = "123456789012345";
+        String beforeCipher = "abcd";
         System.out.println("Input string: " + beforeCipher);
 
         SecretKey keyspec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
