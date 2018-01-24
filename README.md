@@ -73,7 +73,7 @@ public class Test {
         int blockSize = cipher.getBlockSize();
         byte[] dataBytes = beforeCipher.getBytes("UTF-8");
 
-        //find fillChar & fill
+         //find fillChar & pad
         int plaintextLength = dataBytes.length;
         int fillChar = ((blockSize - (plaintextLength % blockSize)));
         if (plaintextLength % blockSize != 0) {
@@ -92,9 +92,15 @@ public class Test {
         cipher.init(Cipher.DECRYPT_MODE, keyspec, ivspec);
         byte[] base64decoded = Base64.getDecoder().decode(afterCiphered.getBytes("UTF-8"));
         byte[] aesdecode = cipher.doFinal(base64decoded);
+        
+        // unpad
         byte[] origin = new byte[aesdecode.length - (aesdecode[aesdecode.length - 1])];
         System.arraycopy(aesdecode, 0, origin, 0, origin.length);
-        System.out.println("Decipher string: [" + new String(origin, "UTF-8") + "]");
+
+        String originStr =  new String(origin, "UTF-8");
+        System.out.println("Decipher string: [" + originStr + "]");
     }
 }    
 ~~~
+
+> Java에서 Python의 pad, unpad와 똑같이 동작 하기 위하여 Encryption시 fillChar을 찾고 pad처리를 하고, Decryption시 unpad 처리를 한다.
