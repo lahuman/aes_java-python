@@ -104,3 +104,7 @@ public class Test {
 ~~~
 
 > Java에서 Python의 pad, unpad와 똑같이 동작 하기 위하여 Encryption시 fillChar을 찾고 pad처리를 하고, Decryption시 unpad 처리를 한다.
+
+## 참고 자료
+
+[Python Java AES ](http://bcllemon.github.io/2015/10/29/2015/python-java-aes/)
