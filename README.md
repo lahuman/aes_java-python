@@ -78,6 +78,8 @@ public class Test {
         int fillChar = ((blockSize - (plaintextLength % blockSize)));
         if (plaintextLength % blockSize != 0) {
             plaintextLength = plaintextLength + (blockSize - (plaintextLength % blockSize));
+        }else{
+            plaintextLength += 16;
         }
         byte[] plaintext = new byte[plaintextLength];
         Arrays.fill(plaintext, (byte) fillChar);
