@@ -76,11 +76,7 @@ public class Test {
          //find fillChar & pad
         int plaintextLength = dataBytes.length;
         int fillChar = ((blockSize - (plaintextLength % blockSize)));
-        if (plaintextLength % blockSize != 0) {
-            plaintextLength = plaintextLength + (blockSize - (plaintextLength % blockSize));
-        }else{
-            plaintextLength += 16;
-        }
+        plaintextLength += fillChar;
         byte[] plaintext = new byte[plaintextLength];
         Arrays.fill(plaintext, (byte) fillChar);
         System.arraycopy(dataBytes, 0, plaintext, 0, dataBytes.length);
